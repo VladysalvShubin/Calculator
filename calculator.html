@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <style>
+      body{
+        background-color: black;
+       font-family: Arial;
+      }
+
+      .Display{
+        color:white;
+        font-weight:bold;
+        font-size:20px;
+        margin-bottom:2px;
+        height:30px;
+        text-align:right;
+        width:170px;
+      }
+      .grey{
+        background-color: grey;
+        color: white;
+        font-weight:bold;
+        border:none;
+        border-radius:50%;
+        height:40px;
+        width:40px;
+        margin:0;
+      }
+   
+      p{
+        margin-bottom:10px;
+        margin-top:10px;
+      }
+      .orange{
+        background-color: rgb(237, 175, 6);
+        color: white;
+        font-weight:bold;
+        border:none;
+        border-radius:50%;
+        height:40px;
+        width:40px;
+        margin:0;
+      }
+      .grey-zero{
+        background-color: grey;
+        color: white;
+        font-weight:bold;
+        border:none;
+        border-radius:40px;;
+        height:40px;
+        width:85px;
+        margin:0;
+        padding-left: 15px;
+        text-align:left;
+      }
+      .grey-one{
+        background-color: rgb(180, 180, 180);
+        color: white;
+        font-weight:bold;
+        border:none;
+        border-radius:50%;
+        height:40px;
+        width:40px;
+        margin:0;
+      }
+      
+    </style>
+  </head>
+
+
+
+  <body>
+
+  <div class="Display"> </div>
+  <button onClick="Clear();" class="grey-one">AC</button>
+  <button class="grey-one">+/-</button>
+  <button class="grey-one" onClick="Percent();">%</button>
+  <button onClick="AddValue('/');" class="orange">/</button>
+
+  <p>
+    <button onClick="AddValue('7');" class="grey">7</button>
+    <button onClick="AddValue('8');" class="grey">8</button>
+    <button onClick="AddValue('9');" class="grey">9</button>
+    <button onClick="AddValue('*');" class="orange">*</button>
+  </p>
+
+  <p>
+    <button onClick="AddValue('4');" class="grey">4</button>
+    <button onClick="AddValue('5');" class="grey">5</button>
+    <button onClick="AddValue('6');" class="grey">6</button>
+    <button onClick="AddValue('-');" class="orange">-</button>
+  </p>
+
+  <p>
+    <button onClick="AddValue('1');" class="grey">1</button>
+    <button onClick="AddValue('2');" class="grey">2</button>
+    <button onClick="AddValue('3');" class="grey">3</button>
+    <button onClick="AddValue('+');" class="orange">+</button>
+  </p>
+
+ 
+
+  
+
+  <p>
+    <button onClick="AddValue('0');" class="grey-zero">0</button>
+    <button onClick="AddValue('.');" class="grey">.</button>
+    <button onClick="Calculation();" class="orange">=</button>
+  
+  </p>
+  
+
+
+    <script>
+      let check = true;
+
+      function AddValue(sign) {
+        
+        if (check) {
+
+        let temp = document.querySelector('.Display').innerHTML;
+
+
+        const operators = ['+', '-', '*', '/', '.'];
+        if (operators.includes(sign) && operators.includes(temp.slice(-1))) {
+          return; 
+        }
+
+        let displayValue = temp;
+        displayValue+=sign;
+        console.log(displayValue);
+        document.querySelector('.Display').innerHTML=displayValue;
+          } else {Clear(); 
+            let temp = document.querySelector('.Display').innerHTML;
+            let displayValue = temp;
+            displayValue+=sign;
+            console.log(displayValue);
+            document.querySelector('.Display').innerHTML=displayValue;
+            check = true;}
+      }
+    function Clear () {
+      document.querySelector('.Display').innerHTML=``;
+    }
+   
+    function Calculation(){
+      let string = document.querySelector('.Display').innerHTML;
+      let result = eval(string);
+      document.querySelector('.Display').innerHTML=result;
+      check=false;
+   
+    }
+
+    function Percent() {
+      let temp = document.querySelector('.Display').innerHTML;
+      let result = eval(temp);
+      result= result*100;
+      result=result*0.1;
+      result=result/100;
+      document.querySelector('.Display').innerHTML=result;
+    }
+
+
+    </script>
+
+
+  </body>
+</html>
