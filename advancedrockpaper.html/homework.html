@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Homework</title>
+    
+  </head>
+
+  <body>
+
+    <button onClick="Changing('heads');">heads</button>
+    <button onClick="Changing('tails');">tails</button>
+    <p class="Choice">You chose:</p>
+
+    <input placeholder="Name" class="Name" onkeydown="nameChange2(event)">
+    <button onClick="nameChange();">Submit</button>
+    <p class="text"></p>
+
+
+    <script>
+      function nameChange2(event) {
+        if (event.key==='Enter'){
+          nameChange();
+        }
+      }
+
+
+      function nameChange(){
+        let whatInside=document.querySelector('.Name');
+        console.log(whatInside);
+        let inside=whatInside.value;
+        document.querySelector('.text').innerHTML=`Your name is: ${inside}`;
+      }
+
+
+
+
+      function Changing(value) {
+
+        if (value==='heads'){
+        document.querySelector('.Choice').innerHTML='You chose: heads';
+      } else {
+        document.querySelector('.Choice').innerHTML='You chose: tails';
+      }
+
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM</title>
+    <style>
+      body{
+        font-family:Arial;
+        margin-bottom:7px;
+      }
+
+      .subscribe-button{
+        background-color: black;
+        color:white;
+        border:none;
+        border-radius:20px;
+        padding-left:15px;
+        padding-right:15px;
+        padding-top:10px;
+        padding-bottom:10px;
+        font-weight:bold;
+        cursor:pointer;
+        margin-bottom:30px;
+      }
+
+      .is-subscribed{
+        background-color: rgb(240, 240, 240);
+        color:black;
+      }
+
+      .cost-input{
+        font-size:15px;
+        padding:10px;
+      }
+     .calculate-button{
+      background-color: green;
+      color:white;
+      border:none;
+      padding:12px 15px;
+      font-size:15px;
+      cursor:pointer;
+     }
+
+     .warning{
+      color:red;
+      font-weight:bold;
+     }
+    </style>
+
+  </head>
+
+  <body>
+    <p>YouTube Subscribe Button</p>
+
+    <button class="Subscribtion-button subscribe-button" onClick="Subscribtion();">Subscribe</button>
+
+
+    <p>Amazon Shipping Calculator</p>
+    <p>orders under $40 = +$10 shipping</p>
+    <p>Orders over $40 = FREE shipping</p>
+    <input placeholder="Cost of order" class="input-of-money cost-input">
+    <button class="calculate-button" onClick="Calculate();">Calculate</button>
+
+    <p class="price warning"></p>
+
+
+
+    <script>
+      function Subscribtion() {
+        let temp = document.querySelector('.Subscribtion-button');
+
+        if (temp.innerText==='Subscribe') {
+          document.querySelector('.Subscribtion-button').innerHTML='Subscribed';
+          temp.classList.add('is-subscribed');
+        }else {
+          document.querySelector('.Subscribtion-button').innerHTML='Subscribe';
+          temp.classList.remove('is-subscribed');
+        }
+      }
+
+      function Calculate(){
+        let temp = document.querySelector('.input-of-money');
+        let cost=Number(temp.value);
+        temp1=document.querySelector('.price');
+       
+        if (cost<0){
+          temp1.classList.add('warning');
+          document.querySelector('.price')
+          .innerHTML=`Invalid value, number cannot be less than 0`;
+        }else{
+        if (cost<40){
+          cost+=10;
+          temp1.classList.remove('warning');
+        } 
+        document.querySelector('.price')
+        .innerHTML=` $ ${cost} is your total price`;
+      }
+        
+      }
+
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM</title>
+
+  </head>
+
+  <body>
+    <p>Amazon Shipping Calculator</p>
+    <input placeholder="Cost of order" class="js-cost-input" onkeydown="
+    handleCostKeyDown (event);
+    "> 
+    <button onClick="
+    calculateTotal();
+    ">Calculate</button>
+
+    <p class="js-total-cost"></p>
+
+    <input class="input2" onkeyup="nineTask();">
+    <p class="nine"></p>
+
+
+   <script>
+
+    function nineTask() {
+      let input= document.querySelector('.input2');
+      let inputik=input.value;
+      document.querySelector('.nine').innerHTML=inputik;
+
+    }
+   // window.document
+    //window.console.log('window');
+   // window.alert();
+
+    // String(25); this fuction will convertt 25 to a string 
+
+//DOM - document object model, that allows JS to fully control the webpage
+    function handleCostKeyDown (event) {
+      if(event.key==='Enter'){
+      calculateTotal();
+    }
+    }
+
+    function calculateTotal() {
+     let inputElement= document.querySelector('.js-cost-input');
+     let cost = Number(inputElement.value);
+      cost = cost * 100
+     if (cost<4000){
+      cost+=1000;
+     }
+     cost=cost/100;
+     document.querySelector('.js-total-cost')
+     .innerHTML= `${cost} The cost`
+    }
+
+//whenewher we get a value from DOT the value will be a string
+   </script>
+  </body>
+</html>

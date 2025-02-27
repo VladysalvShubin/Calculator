@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Toggle Buttons</title>
+    <style>
+      .toggle-button {
+        background-color: gray;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 15px;
+        font-weight: bold;
+        cursor: pointer;
+        margin: 5px;
+      }
+
+      .active {
+        background-color: black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button class="toggle-button" onclick="toggleCategory(this)">Gaming</button>
+    <button class="toggle-button" onclick="toggleCategory(this)">Music</button>
+    <button class="toggle-button" onclick="toggleCategory(this)">Tech</button>
+
+    <script>
+      function toggleCategory(selectedButton) {
+        // Get all buttons
+        let buttons = document.querySelectorAll('.toggle-button');
+
+        // Remove 'active' class from all buttons
+        buttons.forEach(button => button.classList.remove('active'));
+
+        // Add 'active' class to the clicked button
+        selectedButton.classList.add('active');
+      }
+    </script>
+  </body>
+</html>

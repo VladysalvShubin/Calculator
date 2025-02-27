@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Arrays and Loops</title>
+   
+  </head>
+
+  <body>
+   
+
+    <script>
+      /*
+      const myArray = [10, 20, 30];
+      console.log(myArray);
+      console.log(myArray[0]);
+
+      myArray[0]=99;
+      console.log(myArray);
+      // it will add 100 to the end of an array, it basucally adds a value to the end of an array
+      myArray.push(100);
+      console.log(myArray);
+      // this command will remove one value starting form index 0. the first number is index, the next is quantitiy on an elements to remove
+      myArray.splice(0, 1);
+      
+
+      const array1= [1,2,3];
+
+      const array2=array1.slice;
+
+      
+      console.log(array1);
+      console.log(array2);
+      //creates a variable and put the element with an appropriative index inside
+      const [firstValue, SecondValue, ThirdValue]= [1,2,3];
+
+      for (let i = 1; i<=10; i++){
+    
+
+        if (i%3 ===0 ){continue;}
+        console.log(i);
+        if (i==8){break;}
+      }
+*/
+//in a while loop if you use Continue always do the increment step otherwise you will get an infinite loop
+      
+    /* let i = 1; 
+       while(i<=10) {
+        if (i % 3 === 0 ) {
+          i++
+          continue;
+        }
+        console.log(i);
+        i++;
+   
+       } 
+
+
+       function doubleArray(nums) {
+
+          const numsDoubled = [];
+        
+            for (let i = 0; i <nums.length; i++){
+              const num = nums[i];
+              if (num===0){return numsDoubled}
+              numsDoubled.push(num*2);
+            }
+            return numsDoubled;
+      }
+      console.log(doubleArray([1,1,3]));
+      console.log(doubleArray([3,4,3,0,5,7]));
+
+            for (i=1; i<=20; i++){
+        if (i%3===0 && i%5===0){console.log('FizzBuzz'); continue;}
+        if (i%5===0) {console.log('Buzz'); continue;}
+        if (i % 3 === 0){console.log('Fizz'); continue;}
+        console.log(i);
+      }
+*/
+
+      let arr = ['play', 'egg', 'game' ,'egg', 'game', 'egg', 'good'];
+      let without=[];
+
+      for (let i=0; i<arr.length; i++) {
+        let string = arr[i];
+
+        if (without.includes(string)) {
+          continue;
+        }else{
+          without.push(string);
+        }
+
+      }
+      console.log(without);
+
+
+
+    </script>
+
+
+  </body>
+</html>
